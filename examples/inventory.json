@@ -1,0 +1,37 @@
+{
+  "approved_sources": [
+    "dc01.lab.example"
+  ],
+  "identities": [
+    {
+      "target_sid": "S-1-5-21-100-200-300-1101",
+      "okta_user_id": "00u00000000000000001",
+      "protected": false,
+      "status": "ACTIVE"
+    },
+    {
+      "target_sid": "S-1-5-21-100-200-300-1102",
+      "okta_user_id": "00u00000000000000002",
+      "protected": true,
+      "status": "ACTIVE"
+    },
+    {
+      "target_sid": "S-1-5-21-100-200-300-1103",
+      "okta_user_id": "00u00000000000000003",
+      "protected": false,
+      "status": "SUSPENDED"
+    },
+    {
+      "target_sid": "S-1-5-21-100-200-300-1104",
+      "okta_user_id": "00u00000000000000004",
+      "protected": false,
+      "status": "DEPROVISIONED"
+    },
+    {
+      "target_sid": "S-1-5-21-100-200-300-1105",
+      "okta_user_id": "00u00000000000000005",
+      "protected": false,
+      "status": "LOCKED_OUT"
+    }
+  ]
+}

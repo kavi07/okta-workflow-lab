@@ -1,0 +1,158 @@
+[
+  {
+    "name": "active",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1101",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "would_suspend",
+      "reason": "active_identity"
+    }
+  },
+  {
+    "name": "protected",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1102",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "manual_review",
+      "reason": "protected_identity"
+    }
+  },
+  {
+    "name": "suspended",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1103",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "already_inactive",
+      "reason": "inactive_identity"
+    }
+  },
+  {
+    "name": "deprovisioned",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1104",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "already_inactive",
+      "reason": "inactive_identity"
+    }
+  },
+  {
+    "name": "locked_out",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1105",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "manual_review",
+      "reason": "other_status"
+    }
+  },
+  {
+    "name": "unmapped",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1109",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "manual_review",
+      "reason": "unmapped_identity"
+    }
+  },
+  {
+    "name": "unexpected_source",
+    "input": {
+      "event_id": "4725",
+      "source_host": "ws01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1101",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "ignored",
+      "reason": "unapproved_source"
+    }
+  },
+  {
+    "name": "different_event",
+    "input": {
+      "event_id": "4722",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1101",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "ignored",
+      "reason": "unsupported_event"
+    }
+  },
+  {
+    "name": "missing_sid",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "invalid",
+      "reason": "malformed_event"
+    }
+  },
+  {
+    "name": "client_supplied_okta_id",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1101",
+      "record_id": "41025",
+      "okta_user_id": "00u00000000000000001"
+    },
+    "expected": {
+      "decision": "invalid",
+      "reason": "malformed_event"
+    }
+  },
+  {
+    "name": "invalid_sid",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "lab.employee@example.com",
+      "record_id": "41025"
+    },
+    "expected": {
+      "decision": "invalid",
+      "reason": "malformed_event"
+    }
+  },
+  {
+    "name": "invalid_record_id",
+    "input": {
+      "event_id": "4725",
+      "source_host": "dc01.lab.example",
+      "target_sid": "S-1-5-21-100-200-300-1101",
+      "record_id": 41025
+    },
+    "expected": {
+      "decision": "invalid",
+      "reason": "malformed_event"
+    }
+  }
+]
